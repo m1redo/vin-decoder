@@ -70,10 +70,10 @@ src/
 │  └─ variables-page.js
 ├─ utils/
 │  └─ storage.js
-├─ app.js
 ├─ index.js
 ├─ router.js
-└─ styles.css
+├─ styles.css
+└─ app.js
 
 ## Available Pages
 
@@ -84,7 +84,7 @@ src/
 ## Deployment
 
 Live demo:
-``
+`https://vin-decoder-eta.vercel.app`
 
 
 ## Notes
