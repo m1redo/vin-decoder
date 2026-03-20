@@ -101,17 +101,17 @@ input {
 .form-row {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .input {
-  flex: 1 1 280px;
-  min-width: 0;
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   background-color: #ffffff;
+
+  height: 44px;
 }
 
 .input:focus {
@@ -234,6 +234,14 @@ input {
   .section-title {
     font-size: 20px;
   }
+
+.input {
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}
 
   .form-row {
     flex-direction: column;
