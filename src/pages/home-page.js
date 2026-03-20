@@ -25,12 +25,25 @@ export default function HomePage() {
 
       const data = await decodeVin(vin);
 
-      const filledResults = data.Results.filter(
+      const filledResults = (data.Results || []).filter(
         (item) => item.Value && item.Value.trim() !== ""
       );
 
       setResults(filledResults);
-      setMessage(data.Message || "");
+
+      const firstResult = data.Results && data.Results.length ? data.Results[0] : null;
+
+      const infoText = [
+        data.Message,
+        firstResult?.AdditionalErrorText,
+        firstResult?.ErrorText && firstResult.ErrorText !== "0"
+          ? firstResult.ErrorText
+          : ""
+      ]
+        .filter(Boolean)
+        .join(" ");
+
+      setMessage(infoText);
 
       const updatedHistory = saveVinToHistory(vin);
       setHistory(updatedHistory);
@@ -53,7 +66,7 @@ export default function HomePage() {
 
       {message && (
         <section className="card">
-          <h3 className="section-title">API Message</h3>
+          <h3 className="section-title">Information</h3>
           <p className="message message-info">{message}</p>
         </section>
       )}
